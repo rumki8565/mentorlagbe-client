@@ -14,6 +14,7 @@ import {
   UserRole,
   validateSignUp,
 } from "@/lib/validators";
+import { getToken } from "@/lib/api";
 
 const ROLES: { value: UserRole; label: string; hint: string }[] = [
   { value: "student", label: "Student", hint: "Find tutors" },
@@ -64,7 +65,7 @@ export default function SignUpPage() {
       toast.error(error.message ?? "Sign up failed. Please try again.");
       return;
     }
-
+    await getToken(true);
     toast.success("Account created successfully!");
     router.push("/");
     router.refresh();

@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import AuthShell from "@/components/auth/auth-shell";
 import { authClient } from "@/lib/auth-client";
 import { FieldErrors, SignInValues, validateSignIn } from "@/lib/validators";
+import { getToken } from "@/lib/api";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -50,7 +51,7 @@ export default function SignInPage() {
       toast.error(error.message ?? "Invalid email or password");
       return;
     }
-
+    await getToken(true);
     toast.success("Welcome back!");
     router.push("/");
     router.refresh();
