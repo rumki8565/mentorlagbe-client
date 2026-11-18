@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import Logo from "@/components/shared/logo";
 
 interface AuthShellProps {
   title: string;
@@ -21,12 +22,9 @@ export default function AuthShell({
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12">
       <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-        <Link
-          href="/"
-          className="mb-6 block text-center text-2xl font-bold text-indigo-600"
-        >
-          MentorLagbe
-        </Link>
+        <div className="mb-6 flex justify-center">
+          <Logo />
+        </div>
         <h1 className="text-center text-2xl font-semibold text-slate-900">
           {title}
         </h1>
