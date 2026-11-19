@@ -84,3 +84,34 @@ export interface TuitionPayload {
   bannerImage: string;
   description: string;
 }
+export interface AdminStats {
+  totalUsers: number;
+  totalTutors: number;
+  pendingTuitions: number;
+  approvedTuitions: number;
+  revenue: number;
+}
+
+export interface AdminUser {
+  _id: string;
+  name: string;
+  email: string;
+  image?: string | null;
+  role: "student" | "tutor" | "admin";
+  plan: "free" | "pro";
+  createdAt: string;
+}
+
+export interface PaymentRecord {
+  _id: string;
+  userEmail: string;
+  userName: string;
+  userRole: string;
+  planName: string;
+  amount: number;
+  currency: string;
+  transactionId: string;
+  stripeSessionId: string;
+  paymentStatus: string;
+  paidAt: string;
+}
