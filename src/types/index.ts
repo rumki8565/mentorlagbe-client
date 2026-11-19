@@ -17,3 +17,23 @@ export interface Tuition {
   isActive: boolean;
   createdAt: string;
 }
+
+export interface TuitionsResponse {
+  tuitions: Tuition[];
+  total: number;
+  page: number;
+  totalPages: number;
+}
+
+export interface TuitionFilterOptions {
+  subjects: string[];
+  classLevels: string[];
+}
+
+export interface BrowseParams {
+  q: string;
+  subject: string;
+  classLevel: string;
+  mode: string;
+  page: number;
+}
