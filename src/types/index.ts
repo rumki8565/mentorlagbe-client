@@ -37,3 +37,29 @@ export interface BrowseParams {
   mode: string;
   page: number;
 }
+
+export type ApplicationStatus = "pending" | "accepted" | "rejected";
+
+export interface Application {
+  _id: string;
+  tuitionId: string;
+  tuitionTitle: string;
+  subject: string;
+  monthlyFee: number;
+  tutorEmail: string;
+  tutorName?: string;
+  studentName: string;
+  studentEmail: string;
+  studentPhone: string;
+  preferredSchedule: string;
+  studentNote: string;
+  status: ApplicationStatus;
+  appliedAt: string;
+}
+
+export interface StudentStats {
+  total: number;
+  pending: number;
+  accepted: number;
+  rejected: number;
+}
