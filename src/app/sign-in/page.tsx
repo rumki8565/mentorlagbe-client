@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
+
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,9 +10,9 @@ import AuthShell from "@/components/auth/auth-shell";
 import { authClient } from "@/lib/auth-client";
 import { FieldErrors, SignInValues, validateSignIn } from "@/lib/validators";
 import { getToken } from "@/lib/api";
+import { getDashboardPath } from "@/lib/roles";
 
 export default function SignInPage() {
-  const router = useRouter();
   const [values, setValues] = useState<SignInValues>({
     email: "",
     password: "",
@@ -41,7 +41,7 @@ export default function SignInPage() {
     }
 
     setLoading(true);
-    const { error } = await authClient.signIn.email({
+    const { data, error } = await authClient.signIn.email({
       email: values.email.trim(),
       password: values.password,
     });
@@ -53,8 +53,7 @@ export default function SignInPage() {
     }
     await getToken(true);
     toast.success("Welcome back!");
-    router.push("/");
-    router.refresh();
+    window.location.assign(getDashboardPath(data?.user.role));
   };
 
   return (

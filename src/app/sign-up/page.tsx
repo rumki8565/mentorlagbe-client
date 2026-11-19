@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
+
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ import {
   validateSignUp,
 } from "@/lib/validators";
 import { getToken } from "@/lib/api";
+import { getDashboardPath } from "@/lib/roles";
 
 const ROLES: { value: UserRole; label: string; hint: string }[] = [
   { value: "student", label: "Student", hint: "Find tutors" },
@@ -22,7 +23,6 @@ const ROLES: { value: UserRole; label: string; hint: string }[] = [
 ];
 
 export default function SignUpPage() {
-  const router = useRouter();
   const [values, setValues] = useState<SignUpValues>({
     name: "",
     email: "",
@@ -53,7 +53,7 @@ export default function SignUpPage() {
     }
 
     setLoading(true);
-    const { error } = await authClient.signUp.email({
+    const { data, error } = await authClient.signUp.email({
       name: values.name.trim(),
       email: values.email.trim(),
       password: values.password,
@@ -67,8 +67,7 @@ export default function SignUpPage() {
     }
     await getToken(true);
     toast.success("Account created successfully!");
-    router.push("/");
-    router.refresh();
+    window.location.assign(getDashboardPath(data?.user.role ?? values.role));
   };
 
   return (
