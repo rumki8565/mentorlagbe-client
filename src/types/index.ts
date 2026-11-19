@@ -63,3 +63,24 @@ export interface StudentStats {
   accepted: number;
   rejected: number;
 }
+
+export interface TutorStats {
+  total: number;
+  approved: number;
+  pending: number;
+  applicants: number;
+  plan: string;
+  freeLimit: number;
+}
+
+export interface TuitionPayload {
+  title: string;
+  subject: string;
+  classLevel: string;
+  mode: TuitionMode;
+  location: string;
+  monthlyFee: number;
+  daysPerWeek: number;
+  bannerImage: string;
+  description: string;
+}
