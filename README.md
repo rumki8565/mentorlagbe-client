@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MentorLagbe - Smart Tuition & Mentorship Platform
 
-## Getting Started
+MentorLagbe is a full-stack, role-based tuition management platform. Tutors post tuition batches, students search, apply and track applications, and admins moderate listings, users and Pro subscription payments.
 
-First, run the development server:
+**Purpose:** Students and parents struggle to find verified tutors by subject, class level, mode and budget, while tutors lack a structured place to showcase batches. MentorLagbe solves both problems in one place.
+
+## Live Links
+
+- **Live Site:** <your client URL>
+- **Client Repository:** https://github.com/rumki8565/mentorlagbe-client
+- **Server Repository:** https://github.com/rumki8565/mentorlagbe-server
+
+## Admin Credentials
+
+- **Email:** admin@mentorlagbe.com
+- **Password:** zxasqw
+
+Test tutor: rumkiakter938@gmail.com / 123456
+
+Test student: onuonupoma76@gmail.com / asdfgh
+
+Stripe test card: `4242 4242 4242 4242`, any future date, any CVC.
+
+## Key Features
+
+- Role-based authentication (Student, Tutor, Admin) with BetterAuth and JWT
+- Browse tuitions with server-side search, filters (subject, class level, mode) and pagination
+- Tuition details page with a student-only apply form and duplicate application prevention
+- Tutor dashboard: post tuitions (free plan limit of 2), full CRUD, Active/Closed toggle, manage applicants (accept or reject)
+- Student dashboard: stats, my applications with cancel while pending, saved (bookmarked) tuitions
+- Admin dashboard: platform stats, user role management, tuition approval flow, transactions table
+- Stripe Checkout for Pro plans (Tutor $15, Student $10) with payment verification and webhook, and automatic plan upgrade
+- ImgBB image upload for profile pictures and tuition banners
+- Collapsible, responsive dashboard layout with loading skeletons, custom 404 and error pages
+- Toast notifications for all actions
+- Seed script with realistic connected demo data
+
+## Tech Stack
+
+**Client:** Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui
+**Server:** Node.js, Express.js, MongoDB, TypeScript
+**Auth and Payments:** BetterAuth (MongoDB adapter), JWT, Stripe
+**Media:** ImgBB API
+
+## NPM Packages Used
+
+**Client:** next, react, react-dom, better-auth, sonner, lucide-react, tailwindcss, shadcn/ui (Radix UI), class-variance-authority, clsx, tailwind-merge, typescript
+
+**Server:** express, cors, dotenv, mongodb, jsonwebtoken, better-auth, stripe, typescript, tsx
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create a `.env.local` file in the client root:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_IMGBB_API_KEY=your_imgbb_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The client needs the server running (see the server repository).

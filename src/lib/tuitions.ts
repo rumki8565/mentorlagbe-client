@@ -5,7 +5,8 @@ import {
   TuitionsResponse,
 } from "@/types";
 
-const API_URL: string = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL: string =
+  process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL ?? "";
 
 export const PAGE_SIZE: number = 9;
 
