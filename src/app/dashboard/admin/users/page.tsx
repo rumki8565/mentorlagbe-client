@@ -82,9 +82,7 @@ export default function AdminUsersPage() {
                 </td>
                 <td className="px-5 py-4 text-slate-600">{user.email}</td>
                 <td className="px-5 py-4">
-                  <StatusBadge
-                    status={user.plan === "pro" ? "approved" : "closed"}
-                  />
+                  <StatusBadge status={user.plan} />
                 </td>
                 <td className="px-5 py-4 whitespace-nowrap text-slate-600">
                   {formatDate(user.createdAt)}

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { TuitionMode, TuitionPayload } from "@/types";
+import ImageUploader from "@/components/shared/image-uploader";
 
 export interface TuitionFormValues {
   title: string;
@@ -79,7 +80,7 @@ const validate = (values: TuitionFormValues): FormErrors => {
     errors.daysPerWeek = "Days per week must be between 1 and 7";
   }
   if (!values.bannerImage.trim().startsWith("http")) {
-    errors.bannerImage = "Enter a valid image URL starting with http";
+    errors.bannerImage = "Upload a banner image";
   }
   if (values.description.trim().length < 20) {
     errors.description = "Description must be at least 20 characters";
@@ -251,12 +252,10 @@ export default function TuitionForm({
       </div>
 
       <div className="space-y-1.5">
-        <Label htmlFor="bannerImage">Banner Image URL</Label>
-        <Input
-          id="bannerImage"
-          placeholder="https://..."
+        <Label>Banner Image</Label>
+        <ImageUploader
           value={values.bannerImage}
-          onChange={(e) => handleChange("bannerImage", e.target.value)}
+          onChange={(url: string) => handleChange("bannerImage", url)}
         />
         {errorText("bannerImage")}
       </div>
