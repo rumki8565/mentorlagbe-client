@@ -1,4 +1,5 @@
 import {
+  Bookmark,
   BookOpenCheck,
   ClipboardList,
   CreditCard,
@@ -37,6 +38,11 @@ export const DASHBOARD_NAV: Record<AppRole, NavItem[]> = {
       label: "My Applications",
       href: "/dashboard/student/my-applications",
       icon: ClipboardList,
+    },
+    {
+      label: "Saved Tuitions",
+      href: "/dashboard/student/saved",
+      icon: Bookmark,
     },
     PROFILE_ITEM,
   ],

@@ -13,7 +13,7 @@ import { LucideIcon } from "lucide-react";
 import ApplyPanel from "@/components/tuitions/apply-panel";
 import { formatFee, getTuitionById } from "@/lib/tuitions";
 import { Tuition } from "@/types";
-
+import BookmarkButton from "@/components/saved/bookmark-button";
 interface TuitionDetailsPageProps {
   params: Promise<{ id: string }>;
 }
@@ -156,7 +156,7 @@ export default async function TuitionDetailsPage({
               </div>
             </div>
           </div>
-
+          <BookmarkButton tuitionId={tuition._id} variant="full" />
           <ApplyPanel tuitionId={tuition._id} />
         </aside>
       </div>

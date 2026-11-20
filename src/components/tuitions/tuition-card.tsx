@@ -4,6 +4,7 @@ import { BookOpen, GraduationCap, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatFee } from "@/lib/tuitions";
 import { Tuition } from "@/types";
+import BookmarkButton from "@/components/saved/bookmark-button";
 
 interface TuitionCardProps {
   tuition: Tuition;
@@ -31,6 +32,10 @@ export default function TuitionCard({ tuition }: TuitionCardProps) {
         >
           {tuition.mode}
         </span>
+
+        <div className="absolute top-3 right-3">
+          <BookmarkButton tuitionId={tuition._id} />
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col p-5">
