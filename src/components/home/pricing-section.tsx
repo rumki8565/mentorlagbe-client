@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/shared/section-heading";
 import Reveal from "@/components/shared/reveal";
 import { PLANS, PlanAudience, PlanDetails } from "@/lib/plans";
+import SubscribeButton from "@/components/pricing/subscribe-button";
 
 const AUDIENCES: { value: PlanAudience; label: string }[] = [
   { value: "tutor", label: "For Tutors" },
@@ -89,12 +90,7 @@ export default function PricingSection() {
                     <Link href="/sign-up">Get Started Free</Link>
                   </Button>
                 ) : (
-                  <Button
-                    asChild
-                    className="mt-8 w-full bg-indigo-600 text-white hover:bg-indigo-700"
-                  >
-                    <Link href="/pricing">Subscribe with Stripe</Link>
-                  </Button>
+                  <SubscribeButton audience={audience} />
                 )}
               </div>
             </Reveal>
