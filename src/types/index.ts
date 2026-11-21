@@ -115,3 +115,23 @@ export interface PaymentRecord {
   paymentStatus: string;
   paidAt: string;
 }
+
+export interface Review {
+  _id: string;
+  studentName: string;
+  rating: number;
+  feedback: string;
+  reviewedAt: string;
+}
+
+export interface ReviewsResponse {
+  reviews: Review[];
+  average: number;
+  count: number;
+}
+
+export interface MyReview {
+  eligible: boolean;
+  rating: number | null;
+  feedback: string | null;
+}

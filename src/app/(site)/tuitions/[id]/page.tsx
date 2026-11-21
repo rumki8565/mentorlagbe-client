@@ -11,9 +11,13 @@ import {
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import ApplyPanel from "@/components/tuitions/apply-panel";
-import { formatFee, getTuitionById } from "@/lib/tuitions";
-import { Tuition } from "@/types";
 import BookmarkButton from "@/components/saved/bookmark-button";
+import ReviewForm from "@/components/reviews/review-form";
+import ReviewsSection from "@/components/reviews/reviews-section";
+import StarRating from "@/components/reviews/star-rating";
+import { formatFee, getReviews, getTuitionById } from "@/lib/tuitions";
+import { ReviewsResponse, Tuition } from "@/types";
+
 interface TuitionDetailsPageProps {
   params: Promise<{ id: string }>;
 }
@@ -33,6 +37,8 @@ export default async function TuitionDetailsPage({
   if (!tuition) {
     notFound();
   }
+
+  const reviewData: ReviewsResponse = await getReviews(id);
 
   const info: InfoItem[] = [
     { icon: BookOpen, label: "Subject", value: tuition.subject },
@@ -98,6 +104,16 @@ export default async function TuitionDetailsPage({
             {tuition.title}
           </h1>
 
+          {reviewData.count > 0 && (
+            <a href="#reviews" className="mt-3 inline-flex items-center gap-2">
+              <StarRating rating={reviewData.average} />
+              <span className="text-sm font-medium text-slate-700">
+                {reviewData.average.toFixed(1)} ({reviewData.count} review
+                {reviewData.count > 1 ? "s" : ""})
+              </span>
+            </a>
+          )}
+
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {info.map((item: InfoItem) => {
               const Icon: LucideIcon = item.icon;
@@ -128,6 +144,11 @@ export default async function TuitionDetailsPage({
               {tuition.description}
             </p>
           </div>
+
+          <div id="reviews" className="scroll-mt-24">
+            <ReviewForm tuitionId={tuition._id} />
+            <ReviewsSection data={reviewData} />
+          </div>
         </div>
 
         <aside className="space-y-6">
@@ -156,6 +177,7 @@ export default async function TuitionDetailsPage({
               </div>
             </div>
           </div>
+
           <BookmarkButton tuitionId={tuition._id} variant="full" />
           <ApplyPanel tuitionId={tuition._id} />
         </aside>

@@ -1,5 +1,6 @@
 import {
   BrowseParams,
+  ReviewsResponse,
   Tuition,
   TuitionFilterOptions,
   TuitionsResponse,
@@ -96,5 +97,22 @@ export const getTuitionById = async (id: string): Promise<Tuition | null> => {
     return (await res.json()) as Tuition;
   } catch {
     return null;
+  }
+};
+
+export const getReviews = async (
+  tuitionId: string,
+): Promise<ReviewsResponse> => {
+  const empty: ReviewsResponse = { reviews: [], average: 0, count: 0 };
+  try {
+    const res: Response = await fetch(`${API_URL}/api/reviews/${tuitionId}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      return empty;
+    }
+    return (await res.json()) as ReviewsResponse;
+  } catch {
+    return empty;
   }
 };

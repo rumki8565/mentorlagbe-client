@@ -112,6 +112,13 @@ export default function MyApplicationsPage() {
                             tuitionTitle={application.tuitionTitle}
                             onConfirm={() => handleCancel(application)}
                           />
+                        ) : application.status === "accepted" ? (
+                          <Link
+                            href={`/tuitions/${application.tuitionId}#reviews`}
+                            className="text-sm font-medium text-indigo-600 hover:underline"
+                          >
+                            Rate Tutor
+                          </Link>
                         ) : (
                           <span className="text-xs text-slate-400">-</span>
                         )}
@@ -171,6 +178,16 @@ export default function MyApplicationsPage() {
                       tuitionTitle={application.tuitionTitle}
                       onConfirm={() => handleCancel(application)}
                     />
+                  </div>
+                )}
+                {application.status === "accepted" && (
+                  <div className="mt-4 border-t border-slate-100 pt-4">
+                    <Link
+                      href={`/tuitions/${application.tuitionId}#reviews`}
+                      className="text-sm font-medium text-indigo-600 hover:underline"
+                    >
+                      Rate this Tutor
+                    </Link>
                   </div>
                 )}
               </div>
