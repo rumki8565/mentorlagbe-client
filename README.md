@@ -39,16 +39,15 @@ Stripe test card: `4242 4242 4242 4242`, any future date, any CVC.
 
 ## Tech Stack
 
-**Client:** Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui
-**Server:** Node.js, Express.js, MongoDB, TypeScript
-**Auth and Payments:** BetterAuth (MongoDB adapter), JWT, Stripe
-**Media:** ImgBB API
+- **Client:** Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui
+- **Server:** Node.js, Express.js, MongoDB, TypeScript
+- **Auth and Payments:** BetterAuth (MongoDB adapter), JWT, Stripe
+- **Media:** ImgBB API
 
 ## NPM Packages Used
 
-**Client:** next, react, react-dom, better-auth, sonner, lucide-react, tailwindcss, shadcn/ui (Radix UI), class-variance-authority, clsx, tailwind-merge, typescript
-
-**Server:** express, cors, dotenv, mongodb, jsonwebtoken, better-auth, stripe, typescript, tsx
+- **Client:** next, react, react-dom, better-auth, sonner, lucide-react, tailwindcss, shadcn/ui (Radix UI), class-variance-authority, clsx, tailwind-merge, typescript
+- **Server:** express, cors, dotenv, mongodb, jsonwebtoken, better-auth, stripe, typescript, tsx
 
 ## Run Locally
 
