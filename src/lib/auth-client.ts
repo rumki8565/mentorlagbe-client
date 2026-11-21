@@ -13,6 +13,7 @@ export const authClient = createAuthClient({
         plan: { type: "string", required: false, input: false },
         phone: { type: "string", required: false },
         bio: { type: "string", required: false },
+        onboarded: { type: "boolean", required: false, input: false },
       },
     }),
   ],

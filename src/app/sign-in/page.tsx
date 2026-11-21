@@ -11,6 +11,7 @@ import { authClient } from "@/lib/auth-client";
 import { FieldErrors, SignInValues, validateSignIn } from "@/lib/validators";
 import { getToken } from "@/lib/api";
 import { getDashboardPath } from "@/lib/roles";
+import GoogleButton from "@/components/auth/google-button";
 
 export default function SignInPage() {
   const [values, setValues] = useState<SignInValues>({
@@ -101,6 +102,7 @@ export default function SignInPage() {
           {loading ? "Signing in..." : "Sign In"}
         </Button>
       </form>
+      <GoogleButton />
     </AuthShell>
   );
 }

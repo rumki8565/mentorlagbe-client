@@ -16,6 +16,7 @@ import {
 } from "@/lib/validators";
 import { getToken } from "@/lib/api";
 import { getDashboardPath } from "@/lib/roles";
+import GoogleButton from "@/components/auth/google-button";
 
 const ROLES: { value: UserRole; label: string; hint: string }[] = [
   { value: "student", label: "Student", hint: "Find tutors" },
@@ -150,6 +151,7 @@ export default function SignUpPage() {
           {loading ? "Creating account..." : "Sign Up"}
         </Button>
       </form>
+      <GoogleButton />
     </AuthShell>
   );
 }
