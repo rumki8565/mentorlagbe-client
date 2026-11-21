@@ -19,6 +19,7 @@ import Logo from "@/components/shared/logo";
 import RoleBadge from "@/components/shared/role-badge";
 import { authClient } from "@/lib/auth-client";
 import { clearToken } from "@/lib/api";
+import ThemeToggle from "@/components/shared/theme-toggle";
 
 interface NavLink {
   label: string;
@@ -105,6 +106,7 @@ export default function Navbar() {
 
         {/* Desktop auth area */}
         <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           {isPending ? (
             <div className="h-9 w-28 animate-pulse rounded-full bg-slate-100" />
           ) : user ? (
@@ -160,14 +162,21 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          className="rounded-md p-2 text-slate-700 md:hidden"
-          onClick={() => setMenuOpen((open: boolean) => !open)}
-        >
-          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            className="rounded-md p-2 text-slate-700"
+            onClick={() => setMenuOpen((open: boolean) => !open)}
+          >
+            {menuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

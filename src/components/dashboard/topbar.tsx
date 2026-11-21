@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useSignOut } from "@/lib/use-sign-out";
 import { DashboardUser } from "@/components/dashboard/types";
+import ThemeToggle from "@/components/shared/theme-toggle";
 
 interface TopbarProps {
   user: DashboardUser;
@@ -65,36 +66,38 @@ export default function Topbar({
         </button>
         <h1 className="text-lg font-semibold text-slate-900">{title}</h1>
       </div>
-
-      <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center gap-2 rounded-full outline-none">
-          <Avatar className="h-9 w-9">
-            <AvatarImage src={user.image ?? undefined} alt={user.name} />
-            <AvatarFallback className="bg-indigo-100 text-xs font-semibold text-indigo-700">
-              {getInitials(user.name)}
-            </AvatarFallback>
-          </Avatar>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
-          <DropdownMenuLabel>
-            <p className="truncate text-sm font-semibold">{user.name}</p>
-            <p className="truncate text-xs font-normal text-slate-500">
-              {user.email}
-            </p>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem asChild>
-            <Link href="/dashboard/profile">Update Profile</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/">Back to Home</Link>
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={signOut} className="text-red-600">
-            Sign Out
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <DropdownMenu>
+          <DropdownMenuTrigger className="flex items-center gap-2 rounded-full outline-none">
+            <Avatar className="h-9 w-9">
+              <AvatarImage src={user.image ?? undefined} alt={user.name} />
+              <AvatarFallback className="bg-indigo-100 text-xs font-semibold text-indigo-700">
+                {getInitials(user.name)}
+              </AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            <DropdownMenuLabel>
+              <p className="truncate text-sm font-semibold">{user.name}</p>
+              <p className="truncate text-xs font-normal text-slate-500">
+                {user.email}
+              </p>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <Link href="/dashboard/profile">Update Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/">Back to Home</Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={signOut} className="text-red-600">
+              Sign Out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </header>
   );
 }

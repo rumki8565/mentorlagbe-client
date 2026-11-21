@@ -128,3 +128,104 @@
     @apply font-sans;
   }
 }
+
+/* ===================== Dark theme ===================== */
+.dark {
+  color-scheme: dark;
+
+  /* shadcn/ui tokens */
+  --background: #0b1120;
+  --foreground: #e2e8f0;
+  --card: #111b2f;
+  --card-foreground: #e2e8f0;
+  --popover: #111b2f;
+  --popover-foreground: #e2e8f0;
+  --secondary: #1a2438;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1a2438;
+  --muted-foreground: #94a3b8;
+  --accent: #1a2438;
+  --accent-foreground: #e2e8f0;
+  --border: #26344a;
+  --input: #26344a;
+
+  /* Tailwind palette remapped for dark mode */
+  --color-white: #111b2f;
+  --color-slate-50: #0b1120;
+  --color-slate-100: #1a2438;
+  --color-slate-200: #26344a;
+  --color-slate-300: #364559;
+  --color-slate-400: #7c8ba1;
+  --color-slate-500: #94a3b8;
+  --color-slate-600: #a8b3c4;
+  --color-slate-700: #cbd5e1;
+  --color-slate-800: #e2e8f0;
+  --color-slate-900: #f1f5f9;
+
+  --color-indigo-50: #1a1d3f;
+  --color-indigo-100: #232759;
+  --color-indigo-200: #323a7a;
+  --color-indigo-300: #4650a0;
+  --color-indigo-600: #6366f1;
+  --color-indigo-700: #a5b4fc;
+  --color-indigo-800: #c7d2fe;
+  --color-indigo-900: #e0e7ff;
+
+  --color-emerald-50: #0c2a22;
+  --color-emerald-100: #0f3a2d;
+  --color-emerald-200: #14503e;
+  --color-emerald-700: #6ee7b7;
+  --color-emerald-800: #a7f3d0;
+  --color-emerald-900: #d1fae5;
+
+  --color-amber-50: #2a2008;
+  --color-amber-100: #3a2c0a;
+  --color-amber-200: #5c4510;
+  --color-amber-600: #f59e0b;
+  --color-amber-700: #fcd34d;
+  --color-amber-800: #fde68a;
+  --color-amber-900: #fef3c7;
+
+  --color-sky-50: #0a2433;
+  --color-sky-100: #0c3047;
+  --color-sky-600: #38bdf8;
+  --color-sky-700: #7dd3fc;
+
+  --color-red-50: #2d1215;
+  --color-red-100: #3d1519;
+  --color-red-200: #5c1d22;
+  --color-red-600: #ef4444;
+  --color-red-700: #fca5a5;
+  --color-red-800: #fecaca;
+}
+
+/* Colors that must NOT flip (used on solid colored buttons and banners) */
+.dark .text-white {
+  color: #ffffff;
+}
+.dark .text-indigo-100 {
+  color: #e0e7ff;
+}
+.dark .hover\:bg-indigo-700:hover {
+  background-color: #4f46e5;
+}
+.dark .hover\:bg-emerald-700:hover {
+  background-color: #047857;
+}
+.dark .hover\:bg-red-700:hover {
+  background-color: #b91c1c;
+}
+.dark .bg-slate-900\/40 {
+  background-color: rgb(0 0 0 / 0.6);
+}
+
+/* Smooth switching (class is added for a moment when the toggle is clicked) */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease !important;
+}

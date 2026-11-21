@@ -15,9 +15,9 @@ MentorLagbe is a full-stack, role-based tuition management platform. Tutors post
 - **Email:** admin@mentorlagbe.com
 - **Password:** zxasqw
 
-Test tutor: rumkiakter938@gmail.com / 123456
+Test tutor: demo.tutor@mentorlagbe.com / 123456
 
-Test student: onuonupoma76@gmail.com / asdfgh
+Test student: demo.student@mentorlagbe.com / asdfgh
 
 Stripe test card: `4242 4242 4242 4242`, any future date, any CVC.
 
