@@ -8,6 +8,7 @@ import {
   GraduationCap,
   MapPin,
   Wallet,
+  BadgeCheck,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import ApplyPanel from "@/components/tuitions/apply-panel";
@@ -168,8 +169,14 @@ export default async function TuitionDetailsPage({
               </span>
               <div className="min-w-0">
                 <p className="text-xs text-slate-500">Tutor</p>
-                <p className="truncate font-semibold text-slate-900">
-                  {tuition.tutorName}
+                <p className="flex items-center gap-1 font-semibold text-slate-900">
+                  <span className="truncate">{tuition.tutorName}</span>
+                  {tuition.tutorVerified && (
+                    <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-indigo-100 px-2 py-0.5 text-[11px] font-semibold text-indigo-700">
+                      <BadgeCheck className="h-3 w-3" />
+                      Verified
+                    </span>
+                  )}
                 </p>
                 <p className="truncate text-xs text-slate-500">
                   {tuition.tutorEmail}

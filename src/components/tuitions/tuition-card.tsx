@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, GraduationCap, MapPin } from "lucide-react";
+import { BadgeCheck, BookOpen, GraduationCap, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatFee } from "@/lib/tuitions";
 import { Tuition } from "@/types";
@@ -61,8 +61,14 @@ export default function TuitionCard({ tuition }: TuitionCardProps) {
         <div className="mt-4 flex items-end justify-between border-t border-slate-100 pt-4">
           <div>
             <p className="text-xs text-slate-500">Tutor</p>
-            <p className="max-w-[140px] truncate text-sm font-medium text-slate-800">
-              {tuition.tutorName}
+            <p className="flex max-w-[150px] items-center gap-1 text-sm font-medium text-slate-800">
+              <span className="truncate">{tuition.tutorName}</span>
+              {tuition.tutorVerified && (
+                <BadgeCheck
+                  className="h-4 w-4 shrink-0 text-indigo-600"
+                  aria-label="Verified Pro tutor"
+                />
+              )}
             </p>
           </div>
           <p className="text-lg font-bold text-indigo-600">

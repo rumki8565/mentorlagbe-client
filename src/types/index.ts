@@ -16,6 +16,7 @@ export interface Tuition {
   approvalStatus: "pending" | "approved" | "rejected";
   isActive: boolean;
   createdAt: string;
+  tutorVerified?: boolean;
 }
 
 export interface TuitionsResponse {
@@ -55,6 +56,7 @@ export interface Application {
   studentNote: string;
   status: ApplicationStatus;
   appliedAt: string;
+  priority?: boolean;
 }
 
 export interface StudentStats {

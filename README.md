@@ -36,6 +36,7 @@ Stripe test card: `4242 4242 4242 4242`, any future date, any CVC.
 - Collapsible, responsive dashboard layout with loading skeletons, custom 404 and error pages
 - Toast notifications for all actions
 - Seed script with realistic connected demo data
+- Saved tuitions (free students up to 5, Pro unlimited), verified badge for Pro tutors and priority applications for Pro students
 
 ## Tech Stack
 

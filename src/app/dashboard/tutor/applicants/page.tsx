@@ -13,6 +13,7 @@ import { apiFetch } from "@/lib/api";
 import { formatDate } from "@/lib/format";
 import { useApiData } from "@/lib/use-api-data";
 import { Application, ApplicationStatus } from "@/types";
+import PriorityBadge from "@/components/dashboard/priority-badge";
 
 export default function ApplicantsPage() {
   const { data, error, loading, update } = useApiData<Application[]>(
@@ -118,6 +119,7 @@ export default function ApplicantsPage() {
                       <td className="px-5 py-4">
                         <p className="font-medium text-slate-900">
                           {application.studentName}
+                          {application.priority && <PriorityBadge />}
                         </p>
                         <p className="text-xs text-slate-500">
                           {application.studentEmail}
@@ -169,6 +171,7 @@ export default function ApplicantsPage() {
                   <div className="min-w-0">
                     <p className="font-semibold text-slate-900">
                       {application.studentName}
+                      {application.priority && <PriorityBadge />}
                     </p>
                     <p className="truncate text-xs text-slate-500">
                       {application.studentEmail}

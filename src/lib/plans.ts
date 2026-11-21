@@ -48,7 +48,7 @@ export const PLANS: Record<PlanAudience, PlanDetails[]> = {
         "Browse all approved tuitions",
         "Apply to tuitions",
         "Track application status",
-        "Search and filter by subject",
+        "Save up to 5 tuitions",
       ],
       highlighted: false,
     },
@@ -60,7 +60,7 @@ export const PLANS: Record<PlanAudience, PlanDetails[]> = {
       features: [
         "Priority booking with tutors",
         "Verified Pro badge on your profile",
-        "Browse all approved tuitions",
+        "Unlimited saved tuitions",
         "Track application status",
       ],
       highlighted: true,
