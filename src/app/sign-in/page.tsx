@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,19 @@ export default function SignInPage() {
   });
   const [errors, setErrors] = useState<FieldErrors<SignInValues>>({});
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    const error: string | null = new URLSearchParams(
+      window.location.search,
+    ).get("error");
+    if (error === "account_not_linked") {
+      toast.error(
+        "This email is already registered with a password. Please sign in with your email and password.",
+      );
+    } else if (error) {
+      toast.error("Google sign in failed. Please try again.");
+    }
+  }, []);
 
   const handleChange = (field: keyof SignInValues, value: string): void => {
     setValues((prev: SignInValues) => ({ ...prev, [field]: value }));
