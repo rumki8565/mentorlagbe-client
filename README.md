@@ -6,7 +6,7 @@ MentorLagbe is a full-stack, role-based tuition management platform. Tutors post
 
 ## Live Links
 
-- **Live Site:** <your client URL>
+- **Live Site:** https://mentorlagbe-client-tau.vercel.app/
 - **Client Repository:** https://github.com/rumki8565/mentorlagbe-client
 - **Server Repository:** https://github.com/rumki8565/mentorlagbe-server
 
